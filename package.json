@@ -4,6 +4,6 @@
   "description": "PI. Aplicación web dinámica en un servicio de la nube",
   "main": "server.js",
   "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=22.5" },
+  "engines": { "node": ">=22.13" },
   "dependencies": { "express": "^4.21.0", "pg": "^8.13.0" }
 }
