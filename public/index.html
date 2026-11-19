@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>PI. Aplicación web dinámica en un servicio de la nube</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <span class="logo"><span class="dot"></span> Nube Studio</span>
+    <div class="nav-links">
+      <a href="#galeria">Galería</a>
+      <a href="#nuevo">Agregar</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Producto Integrador</p>
+  <h1>PI. Aplicación web dinámica<br><span class="grad">en un servicio de la nube.</span></h1>
+  <p class="sub">Videos, imágenes y música alojados en la nube, guardados en una base de datos PostgreSQL y publicados en Render.</p>
+  <div class="cta">
+    <a class="btn primary" href="#nuevo">Agregar recurso</a>
+    <a class="btn ghost" href="#galeria">Ver galería ›</a>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<main>
+  <section id="galeria" class="section">
+    <div class="bar">
+      <h2>Galería</h2>
+      <div class="tools">
+        <input id="buscar" type="search" placeholder="Buscar" aria-label="Buscar">
+        <div class="seg" id="filtros" role="tablist">
+          <button class="on" data-f="todos">Todo</button>
+          <button data-f="video">Videos</button>
+          <button data-f="imagen">Imágenes</button>
+          <button data-f="musica">Música</button>
+          <button data-f="enlace">Enlaces</button>
+        </div>
+      </div>
+    </div>
+    <div id="lista" class="grid"></div>
+    <p id="vacio" class="empty" hidden>No hay recursos que coincidan.</p>
+  </section>
+
+  <section id="nuevo" class="section">
+    <div class="panel">
+      <h2>Agregar recurso</h2>
+      <p class="muted">Pega un enlace de YouTube, Spotify, una imagen en la nube o cualquier página.</p>
+      <form id="form">
+        <label>Título<input name="titulo" required maxlength="120" placeholder="Ej. Mi video favorito"></label>
+        <label>Tipo
+          <select name="tipo">
+            <option value="video">Video (YouTube)</option>
+            <option value="imagen">Imagen (URL)</option>
+            <option value="musica">Música (Spotify)</option>
+            <option value="enlace">Enlace</option>
+          </select>
+        </label>
+        <label class="full">URL<input name="url" type="url" required placeholder="https://"></label>
+        <label class="full">Descripción<textarea name="descripcion" rows="2" maxlength="500" placeholder="Opcional"></textarea></label>
+        <button class="btn primary full" type="submit">Guardar en la base de datos</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Node.js · Express · PostgreSQL · Render</p>
+  <p>Enlaces a servicios en la nube:
+    <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a> ·
+    <a href="https://open.spotify.com" target="_blank" rel="noopener">Spotify</a> ·
+    <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> ·
+    <a href="https://render.com" target="_blank" rel="noopener">Render</a>
+  </p>
+</footer>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: nube-studio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nube-studio-db
+          property: connectionString
+databases:
+  - name: nube-studio-db
+    plan: free
